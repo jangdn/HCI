@@ -1,2 +1,1 @@
-# HCI
-homework of HCI
+# jangdn.io
