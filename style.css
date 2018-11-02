@@ -1,0 +1,253 @@
+html, body {
+margin : 0;
+padding : 0;
+min-width: 800px;
+}
+body {
+color : #333;
+background : #484452;
+width : 100%;
+font : 73% "lucida sans", "Trebuchet MS", Arial, Helvetica, Tahoma, sans-serif;
+}
+			/*WRAP*/
+#container {
+width : 80%;
+margin : 0 auto;
+line-height: 2em;
+min-width: 700px;
+background : #F8F2DA;
+color : #333;
+}
+			/*TOP BANNER*/
+#top {
+padding : 0.5em;
+height: 100px;
+background : #FDD692;
+color : #484452;
+}
+
+#top h1 {
+padding : 0;
+margin : 10px 0 0 10px;
+font-size : 200%;
+letter-spacing: 5px;
+}
+			/*MAIN CONTENT*/
+#content {
+border-left : 1px solid #383A3F;
+padding : 1em 3em 0 3em;
+}
+			/*FOOTER*/
+#footer {
+clear : both;
+margin : 0;
+padding : .5em 0 1em 0;
+font-size : 0.9em;
+border-bottom : 0px solid #383A3F;
+border-top :1px solid #383A3F;
+color : #fafafa;
+background : #EC7357;
+}
+#footer a {
+background: inherit;
+color: #C7AFBD;
+}
+#footer a:hover {
+background: inherit;
+color: #333;
+}
+#footer img {
+float : right;
+}
+/* seen by IE5mac only, by Philippe Wittenbergh www.l-c-n.com */
+*>html #footer img {
+        margin : 0;
+}
+/* end */
+#footer p {
+padding-left :10px;
+}
+		/* TOP NAVIGATION  */
+#navcontainer ul {
+text-align: center;
+padding-bottom: 10px;
+padding-top: 10px;
+padding-left: 0;
+margin-top: 0;
+/* cancels gap caused by top padding in Opera 7.54 */
+margin-left: 0;
+background: #EC7357;
+color: #fff;
+width: 100%;
+font-size : 11pt;
+font-family: Helvetica, Arial, sans-serif;
+line-height: 18px;
+/* fixes Firefox 0.9.3 */
+}
+#navcontainer ul li {
+display: inline;
+padding-left: -10px;
+padding-right: -10px;
+padding-bottom: 10px;
+/* matches link padding except for left and right */
+padding-top: 10px;
+}
+#navcontainer ul li a {
+padding-left: 10px;
+padding-right: 10px;
+padding-bottom: 10px;
+padding-top: 10px;
+color: #fff;
+text-decoration: none;
+border-right: 1px solid #fff;
+}
+#navcontainer ul li a:hover {
+background: #EC7357;
+color: #333;
+}
+#navcontainer #active {
+border-left: 1px solid #383A3F;
+}
+		/* SEARCH BOX */
+form { float: right;
+margin-bottom: 20px; 
+}
+/* BOTTOM COLUMNS */
+#columns {
+clear : both;
+width :100%;
+height: 150px;
+margin : 0;
+padding : 1em 0 0 0;
+border-top: 3px solid #383A3F;
+background: #EC7357;
+color: #5E516F;
+}
+.col3,.col3center {
+float: left;
+width: 29%;
+margin-left : 20px;
+}
+.col3center {
+margin: 0 3%;
+}
+#columns a {
+background: inherit;
+color: #5E516F;
+}
+#columns a:hover {
+background: inherit;
+color: #fff;
+}
+#columns h2 {
+margin : 0 0 0.5em 1em;
+font-size : 140%;
+text-transform: uppercase;
+color : #5E516F;
+background : transparent;
+}
+		/* LINKS */
+a:link, a:visited {
+color : #86228B;
+background : transparent;
+text-decoration : none;
+}
+a:hover {
+color : #484452;
+text-decoration : none;
+}
+a:active {
+color : #484500;
+text-decoration : none;
+}
+img {
+border : none;
+}
+		/*CLASS */
+.quote {
+border-top : 1px solid #383A3F;
+padding : 10px;
+color: #A662AA;
+}
+.imgleft {
+float: left;
+}
+		/* TYPOGRAPHY */
+h2 {
+margin : 0 0 .5em 0;
+font-size : 130%;
+color : #5E516F;
+background : transparent;
+}
+
+@media screen and (max-width: 1000px) {
+	#inputtable{
+		margin-left: 2%;
+		margin-bottom: 50px;
+	}
+}
+
+@media screen and (min-width: 1001px) {
+	#inputtable{
+		margin-left: 20%;
+		margin-bottom: 50px;
+	}
+}
+#ipleft, #ipright {
+    border-top: 2px solid #ce6d39;
+    padding: 10px;
+}
+
+#resume{
+	width:610px;height:1050px;border:4px solid #ce6d39; margin-bottom: 40px;
+	font-size: 11pt;
+}
+
+#resume #re_first{
+	width:580px;height:190px;margin:10px;
+	padding-top: 10px;
+	font-size : 14pt;
+	white-space: pre-line;
+}
+
+#resume #re_career
+{
+	white-space: pre-line;width:580px;height:115px;margin:10px;border:2px solid #ce6d39
+	;padding-top:35px;padding-left:5px;
+}
+
+#resume #re_education
+{
+	white-space: pre-line;width:580px;height:115px;margin:10px;margin-top:-25px;border:2px solid #ce6d39
+	;padding-top:35px;padding-left:5px;
+	overflow-y: scroll;
+}
+
+#resume #re_exp
+{
+	white-space: pre-line;width:580px;height:115px;margin:10px;border:2px solid #ce6d39;
+	;padding-top:35px;margin-top:-25px;padding-left:5px;
+	overflow-y: scroll;
+}
+
+#resume #re_ski
+{
+	white-space: pre-line;width:580px;height:115px;margin:10px;border:2px solid #ce6d39
+	;padding-top:35px;margin-top:-25px;padding-left:5px;
+	overflow-y: scroll;
+}
+
+#resume #re_others
+{
+	white-space: pre-line;width:580px;height:115px;margin:10px;border:2px solid #ce6d39
+	;padding-top:35px;padding-left:5px;
+	;margin-top:-25px;
+	overflow-y: scroll;
+}
+
+#resume #tag
+{
+	position:relative;top:-163px;left:10px;width:55px;height:25px;border:2px solid #ce6d39;
+	padding-left:3px;
+	;font-weight:bold; font-size : 11pt;color: #ec7357
+}

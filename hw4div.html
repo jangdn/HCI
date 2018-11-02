@@ -1,0 +1,300 @@
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script src="scripts/html2canvas.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
+<script>
+	$(document).ready(function(){
+		$('#hwmain').show();
+		$('#resume').hide();
+		$('#submit').click(function(){
+			alert("complete!!");
+			$('#hwmain').hide();
+			$('#resume').show();
+			$('#re_lname').html('last name		:' + $('#l_name').val());
+			if(!($('#m_name').empty()))
+			{
+				$('#re_mname').html('middle name	: ' + $('#m_name').val());
+			}
+	    	$('#re_fname').html('first name	: ' + $('#f_name').val());
+	    	$('#re_phone').html('phone number	: ' + $('#info_phone').val());
+	    	$('#re_add').html('address	: ' + $('#info_add').val());
+
+	    	$('#re_education').html($('#edu_div').html());
+	    	$('#re_exp').html($('#exp_div').html());
+	    	$('#re_skill').html($('#ski_div').html());
+	    	$('#re_others').html($('#oth_div').html());
+	    	//$('<div>').html($('#content').html().replace(/\n/g, '\\n')).text().replace(/\\n/g, '\n');
+		});
+		$('#cmd').click(function(){
+			topdf();
+		});
+	});
+	function topdf(){
+      html2canvas(document.getElementById("resume"), {
+        onrendered:function(canvas){
+          var imgData = canvas.toDataURL('image/png');
+          var imgWidth = 210;
+          var imgHeight = canvas.height * imgWidth / canvas.width;
+          var doc = new jsPDF('p', 'mm');
+          var position = 0;
+          doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+          doc.save('resume.pdf');
+        }
+      });
+    }
+</script>
+
+<div id = "hwmain">	
+	<table id = "inputtable">
+	<tr>
+		<td id = "ipleft" style = "width:200px">Last Name</td>
+		<td id = "ipright"><input type ="text" id = "l_name" placeholder = "please enter your Last name" style = "width:200px" autofocus required></td>
+	</tr>
+	<tr>
+		<td id = "ipleft">Middle Name</td>
+		<td id = "ipright"><input type ="text" id = "m_name" placeholder = "if you have," style = "width:200px"></td>
+	</tr>
+	<tr>
+		<td id = "ipleft">First Name</td>
+		<td id = "ipright"><input type ="text" id = "f_name" placeholder = "please enter your First name"  style = "width:200px" requierd></td>
+	</tr>
+	<tr>
+		<td id = "ipleft">Your image</td>
+		<td id = "ipright">
+			<input type ="file" id = "img" placeholder = "logo, photo, character, etc">
+			<script>
+				$(document).ready(function(){
+					$("#img").on("change",handleImg);
+				});
+
+			    function handleImg(e){
+					var files = e.target.files;
+					var filesArr = Array.prototype.slice.call(files);
+					filesArr.forEach(function(f){
+						if(!f.type.match("image.*")){
+							alert("only image file!");
+							return;
+						}
+						sel_file = f;
+
+						var reader = new FileReader();
+						reader.onload = function(e){
+							$("#input_img").attr("src", e.target.result);
+							$("#re_iimg").attr("src", e.target.result);
+						}
+						reader.readAsDataURL(f);
+					});
+				}
+			</script>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td>
+		&nbsp&nbsp<img id = "input_img" width="160px" height="200px">
+		</td>
+	</tr>
+	<tr>
+		<td id = "ipleft">Contact information</td>
+		<td id = "ipright"></td>
+	</tr>
+	<tr>
+		<td style="padding: 10px;">
+			Phone num.
+		</td>
+		<td style="padding: 10px;">
+			<input type ="text" id = "info_phone" placeholder = "***-****-****" style = "width:250px">
+		</td>
+	</tr>
+	<tr>
+		<td style="padding: 10px;">
+			Addr.
+		</td>
+		<td style="padding: 10px;">
+			<input type ="text" id = "info_add" placeholder = "서울특별시 약령시로 *길 ***호" style = "width:300px">
+		</td>
+	<tr>
+	<tr>
+		<td id = "ipleft">Career goal/objective</td>
+		<td id = "ipright"> 
+			<textarea id = "goal" placeholder = "please enter within one sentence" rows = "2" style = "white-space: pre-line;width:300px" requierd></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td id = "ipleft">Education</td>
+		<td id = "ipright">
+			<input type="input" id = "edu_content" placeholder = "form is (school / major / duration / etc.)"  multiple style = "width:300px">
+			<input type ="button" onclick = "add_edu();" value = "add">
+		</td>
+		<script>
+			function add_edu(){
+				var string = "";
+				if(($("#edu_content").val()) == '')
+				{
+					alert("Not empty!");
+					return;
+				}
+				if(!($("#edu_div").is(':empty')))
+				{
+					string = $("#edu_div").text();
+				}
+				string += $("#edu_content").val();
+				string += '\n';
+				$("#edu_content").empty();
+				$("#edu_div").html(string).wrap('<pre/>');
+				console.log($("#edu_div").html());
+
+				$("#edu_content").val('');
+				alert("complete add");
+			}
+		</script>
+	</tr>
+	<tr>
+		<td></td>
+		<td>
+			<div id = "edu_div" style = "white-space: pre-line;height:120px"></div>
+		</td>
+	</tr>
+	<tr>
+		<td id = "ipleft">Experience</td>
+		<td id = "ipright">
+			<input type="input" id = "exp_content" placeholder = "ex) organization, duties, duration, etc."  multiple style = "width:300px">
+			<input type ="button" onclick = "add_exp();" value = "add">
+		<script>
+			function add_exp(){
+				var string = "";
+				if(($("#exp_content").val()) == '')
+				{
+					alert("Not empty!");
+					return;
+				}
+				if(!($("#exp_div").is(':empty')))
+				{
+					string = $("#exp_div").text();
+				}
+				string += $("#exp_content").val();
+				string += '\n';
+				$("#exp_content").empty();
+				$("#exp_div").html(string).wrap('<pre/>');
+				console.log($("#exp_div").html());
+
+				$("#exp_content").val('');
+				alert("complete add");
+			}
+		</script>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>
+			<div id = "exp_div" style = "white-space: pre-line;height:120px"></div>
+		</td>
+	</tr>
+	<tr>
+		<td id = "ipleft">Skills</td>
+		<td id = "ipright">
+			<input type="input" id = "ski_content" placeholder = "can use language, etc"  multiple style = "width:300px">
+			<input type ="button" onclick = "add_ski();" value = "add">
+		<script>
+			function add_ski(){
+				var string = "";
+				if(($("#ski_content").val()) == '')
+				{
+					alert("Not empty!");
+					return;
+				}
+				if(!($("#ski_div").is(':empty')))
+				{
+					string = $("#ski_div").text();
+				}
+				string += $("#ski_content").val();
+				string += '\n';
+				$("#ski_content").empty();
+				$("#ski_div").html(string).wrap('<pre/>');
+				console.log($("#ski_div").html());
+
+				$("#ski_content").val('');
+				alert("complete add");
+			}
+		</script>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>
+			<div id = "ski_div" style = "white-space: pre-line;height:120px"></div>
+		</td>
+	</tr>
+	<tr>
+		<td id = "ipleft">Others</td>
+		<td id = "ipright">
+			<textarea id = "oth_content" placeholder = "please enter freesytle." rows = "3" style = "width:300px"></textarea>
+			<input type ="button" onclick = "add_oth();" value = "add">
+		<script>
+			function add_oth(){
+				var string = "";
+				if(($("#oth_content").val()) == '')
+				{
+					alert("Not empty!");
+					return;
+				}
+				if(!($("#oth_div").is(':empty')))
+				{
+					string = $("#oth_div").text();
+				}
+				string += $("#oth_content").val();
+				string += '\n';
+				$("#oth_content").empty();
+				$("#oth_div").html(string).wrap('<pre/>');
+				console.log($("#oth_div").html());
+
+				$("#oth_content").val('');
+				alert("complete add");
+			}
+		</script>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>
+			<div id = "oth_div" style = "white-space: pre-line;overflow-y: scroll;height:120px"></div>
+		</td>
+	</tr>
+	<tr>
+		<td id = "ipleft">
+		<button type = "button" id="submit">submit</button>
+		</td><td id = "ipright"></td>
+	</tr>
+	</form></table>
+	<p><p>
+</div>
+
+
+<div id = "resume">
+	<div id = "re_first">
+		<div id = "re_identify" style = "display: inline-block;float:left;width:405px;height:190px;border:2px solid #ce6d39">
+			<div id = "re_lname"></div>
+			<div id = "re_mname"></div>
+			<div id = "re_fname"></div>
+			<div id = "re_phone"></div>
+			<div id = "re_add"></div>
+		</div>
+		<div id = "re_img" style = "display: inline-block;float:left;width:160px;height:190px; border:2px solid #ce6d39;margin-left:8px;;">
+			<img id= "re_iimg"  width="160px" height="190px">
+		</div>
+	</div>
+	<div id = "re_career"></div>
+		<div id = "tag">Career</div>
+	<div id = "re_education"></div>
+		<div id = "tag" style="width:85px">Education</div>
+	<div id = "re_exp"></div>
+		<div id = "tag" style="width:85px">Experience</div>
+	<div id = "re_ski"></div>
+		<div id = "tag" style="width:45px">Skills</div>
+	<div id = "re_others"></div>
+		<div id = "tag" style="top:-163px;width:55px;">Others</div>
+	<div id="editor"></div>
+	<button id="cmd">generate PDF</button>
+	<div = id="editor"></div>
+</div>
