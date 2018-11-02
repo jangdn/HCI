@@ -210,6 +210,15 @@ background : transparent;
 	white-space: pre-line;
 }
 
+#resume #re_first #re_identify
+{
+	display: inline-block;float:left;width:405px;height:190px;border:2px solid #ce6d39
+}
+
+#resume #re_first #re_img{
+	display: inline-block;float:left;width:160px;height:190px; border:2px solid #ce6d39;margin-left:8px;;
+}
+
 #resume #re_career
 {
 	white-space: pre-line;width:580px;height:115px;margin:10px;border:2px solid #ce6d39
@@ -250,4 +259,9 @@ background : transparent;
 	position:relative;top:-163px;left:10px;width:55px;height:25px;border:2px solid #ce6d39;
 	padding-left:3px;
 	;font-weight:bold; font-size : 11pt;color: #ec7357
+}
+
+#resume #cmd
+{
+	position:relative;top:-15px;
 }
