@@ -182,7 +182,8 @@ function create_label(id, in_x, in_y, in_width, in_height, radius, in_font_size,
             x : in_x,
             y : in_y,
             width : in_width,
-            height : in_height
+            height : in_height,
+            content : in_content
         };
         object_size.push(my_size);
 
@@ -402,6 +403,7 @@ function canvasclick(e)
 
     console.log(x,y);
 
+    //닫기 작동시
     for(var i = 0; i<object_size.length;i++)
     {
         console.log(object_size[i].x, object_size[i].y, object_size[i].width, object_size[i].height);
@@ -470,6 +472,23 @@ function canvasclick(e)
                             break;
                         }
                 }
+            }
+        }
+    }
+
+    //label일시 버튼 누르면 경고창!
+    for(var i = 0;(i<object_size.length);i++)
+    {
+        //x좌표 확인
+        if((object_size[i].kind == 2))
+        {
+            if((x > object_size[i].x) & (x < (object_size[i].x + object_size[i].width)))
+            {
+                //y좌표 확인
+                if(y < (object_size[i].y + object_size[i].height) & (y > object_size[i].y))
+                {
+                    alert(object_size[i].content);
+                }   
             }
         }
     }
