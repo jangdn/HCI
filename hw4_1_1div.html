@@ -1,0 +1,27 @@
+<script type="text/javascript" src="./script/hw4_1_1.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<link href="./css/hw4_1_1.css" rel="stylesheet" type="text/css"/>
+
+
+<div id = "div4_1_1">
+	<canvas id = "maincanvas" onclick="canvasclick(event);" width="600px" height="700px">
+		<script type="text/javascript">
+			$(document).ready(function(){
+				initialize();
+				//create_window();
+				//input (id, x, y, width, height, font_size, font_style, font_color, rect_color, title) 테두리 색은 고정!
+				create_window(1, 50, 50, 200, 250,"20px", "bold","#ffffff","#000000", "My_Window");
+				//input (id, x, y, width, height, font_size, font_style, font_color, rect_color, title)
+				create_label(2, 400, 80, 150, 150,10,"25px","Calibri", "rgb(205,0,0)" ,"rgb(205,209,255)","My_Lable");
+				create_label(2, 80, 500, 200, 110,10, "40px", "serif","rgb(250,200,200)","rgb(0,45,80)", "My_Lable");
+				//textbox는 입력 text에 맞게 rect의 height가 조절됩니다.
+				//input (id, x, y, width, font_size, font_style, font_color, rect_color, title)
+				create_textbox(3, 100, 350, 250, "20px", "serif", "rgb(30,30,30)","rgb(250,200,200)", "이 텍스트 박스는 입력 TEXT의 길이에 맞게 height가 조절됩니다. 따라서 따로 height값을 넣을 필요가 없습니다.");
+				//function create_menu(id, in_x, in_y, in_width, in_height, in_fill_color, in_title, initme_fill_color, in_item1, in_item2, in_item3, in_item4)
+				//font 등 각각 다 바꾸는건 위에서 다 구현되었다고 생각하여 item fill color만 구현하였습니다.
+				create_menu(4, 375, 450, 200, 50, "#FDD692", "My_Menu", "rgb(140,140,140)", "My_item1", "My_item2", "My_item3", "My_item4");
+			});
+		</script>
+	</canvas>
+</div>

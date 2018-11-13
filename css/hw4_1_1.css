@@ -1,0 +1,12 @@
+
+#div_4_1_1 {
+    width : 1000px;
+    height: 800px;
+}
+
+#maincanvas {
+	display: block;
+	border: 2px solid #383A3F;
+	margin: 0 auto;
+	margin-bottom : 10%;
+}

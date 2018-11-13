@@ -181,6 +181,17 @@ background : transparent;
 }
 
 @media screen and (max-width: 1000px) {
+	#content{
+	}
+}
+
+@media screen and (min-width: 1001px) {
+	#content{
+	}
+}
+
+
+@media screen and (max-width: 1000px) {
 	#inputtable{
 		margin-left: 2%;
 		margin-bottom: 50px;
