@@ -1,0 +1,48 @@
+<script type="text/javascript" src="./script/hw4_1_2.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link href="./css/hw4_1_1.css" rel="stylesheet" type="text/css"/>
+
+<!--
+function show_allnode(root_id){
+function search_node(root_id, in_data){
+function num_node(node)
+function delete_node(root_id, in_id){
+function add_node(root_id, in_id ,in_data){
+function create_root(in_rootid){
+-->
+<div id = "div4_1_2">
+	<canvas id = "maincanvas" width="600px" height="700px">
+		<script type="text/javascript">
+			$(document).ready(function(){
+				console.log("root 생성1");
+				create_root(10, 100, 100);
+				show_allnode(10);
+				console.log("모든 노드 추가");
+				add_node(10, 1, "window1");
+				add_node(10, 2, "textbox1");
+				add_node(10, 3, "button");
+				add_node(10, 4, "button");
+				add_node(10, 5, "textbox2");
+				add_node(10, 6, "textbox3");
+				show_allnode(10);
+				console.log("window가 있는 node의 id는?");
+				search_node(10, "window1");
+				console.log("button이 있는 node의 id는?");
+				search_node(10, "button");
+				console.log("6번 노드 삭제");
+				delete_node(10, 6);
+				show_allnode(10);
+				console.log("3번 노드 삭제");
+				delete_node(10, 3);
+				show_allnode(10);
+				console.log("root 생성2");
+				create_root(12, 200, 400);
+				show_allnode(12);
+				console.log("root 삭제");
+				delete_root(12);
+				show_allnode(12);
+
+			});
+		</script>
+	</canvas>
+</div>
