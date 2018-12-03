@@ -1,0 +1,39 @@
+<script type="text/javascript" src="./script/hw4_1_3.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link href="./css/hw4_1_1.css" rel="stylesheet" type="text/css"/>
+
+<!--
+function show_allnode(root_id){
+function search_node(root_id, in_data){
+function num_node(node)
+function delete_node(root_id, in_id){
+function add_node(root_id, in_id ,in_data){
+function create_root(in_rootid){
+-->
+<div id = "div4_1_3">
+	<canvas id = "maincanvas" onclick="canvasclick(event);" width="600px" height="700px">
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//콘솔에 대부분의 구현을 다 해놓았습니다. 
+				//graphic적인 부분이 조금 미흡하게 구현해놓았습니다.
+				draw_base();
+				console.log("root 생성1");
+				create_root(10);
+				show_allnode(10);
+				console.log("모든 노드 추가");
+				add_node(10, 1, "window1", 5, 100, 300, 400);
+				add_node(10, 2, "textbox1", 100, 100, 50, 50);
+				add_node(10, 3, "button1", 150, 100, 100, 180);
+				add_node(10, 4, "button2", 5, 200, 100, 200);
+				add_node(10, 5, "button3", 180, 100, 40, 80);
+				add_node(10, 6, "button4", 220, 200, 80, 80);
+				create_root(20);
+
+				add_node(20, 1, "2_window1", 350, 50, 200, 500);
+				add_node(20, 2, "2_textbox1", 350, 100, 100, 50);
+				add_node(20, 3, "2_button1", 400, 350, 100, 180);
+				add_node(20, 4, "2_button2", 350, 130, 80, 400);
+			});
+		</script>
+	</canvas>
+</div>
